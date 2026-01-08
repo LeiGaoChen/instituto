@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Alumno;
 use App\Http\Requests\StoreAlumnoRequest;
 use App\Http\Requests\UpdateAlumnoRequest;
-use Illuminate\Support\Facades\Schema;
 
 class AlumnoController extends Controller
 {
@@ -14,9 +13,7 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        $alumnos = Alumno::all();
-        $campos= Schema::getColumnListing('alumnos');
-        return view('alumnos.listado', compact('alumnos', 'campos'));
+        //
     }
 
     /**
@@ -24,7 +21,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        return view('alumnos.create');
+        //
     }
 
     /**
@@ -32,10 +29,7 @@ class AlumnoController extends Controller
      */
     public function store(StoreAlumnoRequest $request)
     {
-        $datos = $request->input();
-        Alumno::create($datos);
-
-        return redirect()->route('alumnos.index');
+        //
     }
 
     /**
@@ -51,7 +45,7 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        return view('alumnos.edit', compact('alumno'));
+        //
     }
 
     /**
@@ -59,10 +53,7 @@ class AlumnoController extends Controller
      */
     public function update(UpdateAlumnoRequest $request, Alumno $alumno)
     {
-        $datos = $request->input();
-        $alumno->update($datos);
-
-        return redirect()->route('alumnos.index');
+        //
     }
 
     /**
@@ -70,9 +61,9 @@ class AlumnoController extends Controller
      */
     public function destroy(Alumno $alumno)
     {
+        //
         $alumno->delete();
-        $alumnos = Alumno::all();
-        $campos= Schema::getColumnListing('alumnos');
-        return view('alumnos.listado', compact('alumnos', 'campos'));
+        return redirect()-> route("alumno.index");
     }
+    
 }

@@ -4,6 +4,9 @@ use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\ProyectoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SetLanguageController;
+
+Route::get("lang/{lang}", [SetLanguageController::class])->name("set_lang");
 
 Route::get('/', function () {
     return view('main');
@@ -29,3 +32,5 @@ require __DIR__.'/auth.php';
 
 Route::resource('alumnos', AlumnoController::class);
 Route::resource('proyectos', ProyectoController::class);
+
+Route::get('/lang/{lang}', SetLanguageController::class)->name('set_lang');

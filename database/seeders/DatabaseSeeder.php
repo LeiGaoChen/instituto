@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
         ]);
 
-        User::create([
+        $user=User::create([
             "name"=>"admin",
             "email"=>"admin@gmail.com",
             "password"=>bcrypt("12345678")
